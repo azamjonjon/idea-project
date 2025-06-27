@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛠 Каталог мастеров (MVP)
 
-## Getting Started
+## 🎯 Цель проекта
+Создать простой онлайн-каталог частных мастеров (сантехники, электрики и др.), где:
+- пользователи могут находить мастеров по категориям и районам,
+- мастера могут самостоятельно добавить свой профиль через форму,
+- без регистрации и чата.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 👤 Роли пользователей
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Пользователь (клиент)** — просматривает список мастеров, фильтрует по категориям, кликает на мастера и может позвонить.
+- **Мастер** — добавляет себя через форму (имя, описание, контакты, фото, категория).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧱 Основной функционал
 
-## Learn More
+### Для клиента:
+- [ ] Главная страница со списком мастеров
+- [ ] Фильтр по категории и району
+- [ ] Страница мастера с фото, описанием, кнопкой "Позвонить"
 
-To learn more about Next.js, take a look at the following resources:
+### Для мастера:
+- [ ] Форма "Добавить мастера"
+- [ ] Сохранение данных (в JSON Server или локальную базу)
+- [ ] Мастер появляется в списке
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧭 Страницы
 
-## Deploy on Vercel
+1. `/` — Главная (список всех мастеров + фильтр)
+2. `/add-master` — Добавить мастера (форма)
+3. `/masters/:id` — Профиль мастера
+4. `*` — Страница не найдена
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠 Технологии
+
+| Часть     | Технологии              |
+|-----------|-------------------------|
+| Frontend  | React, Redux Toolkit, React Router |
+| Backend   | JSON Server или Express (если хочешь) |
+| БД        | JSON файл или MongoDB |
+| UI        | MUI или Tailwind (на выбор)
+
+---
+
+## 🗂 Пример структуры данных мастера
+
+```json
+{
+  "id": "abc123",
+  "name": "Фаррух Юсупов",
+  "category": "Сантехник",
+  "region": "Душанбе",
+  "phone": "+992 900000000",
+  "description": "Устанавливаю раковины, унитазы, трубы. Опыт 10 лет.",
+  "imageUrl": "https://example.com/photo.jpg"
+}
